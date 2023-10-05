@@ -1,7 +1,7 @@
 #install.packages("ggplot2")
 #install.packages("gganimate")
 #install.packages("transformr")
-install.packages("plotly")
+#install.packages("plotly")
 
 
 

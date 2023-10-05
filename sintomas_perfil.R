@@ -73,7 +73,7 @@ unique(df$DOENCAS_CARDIACAS_CRONICAS)
 df$DOENCAS_CARDIACAS_CRONICAS <- ifelse(df$DOENCAS_CARDIACAS_CRONICAS %in% c("0", "Ignorado","NA"), NA, df$DOENCAS_CARDIACAS_CRONICAS)
 
 outros_sintomas <- unique(df$OUTROS)
-
+outros_sintomas
 #view(outros_sintomas)
 
 unique(df$CLASSIFICACAO_FINAL)
