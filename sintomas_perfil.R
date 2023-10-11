@@ -1,10 +1,10 @@
-install.packages("tidyverse")
-install.packages("magrittr")
-install.packages("dplyr")
-install.packages("readr")
-install.packages("ggplot2")
-install.packages("ggthemes")
-install.packages("gridExtra")
+#install.packages("tidyverse")
+#install.packages("magrittr")
+#install.packages("dplyr")
+#install.packages("readr")
+#install.packages("ggplot2")
+#install.packages("ggthemes")
+#install.packages("gridExtra")
 
 
 library(gridExtra)
