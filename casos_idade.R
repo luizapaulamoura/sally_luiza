@@ -43,8 +43,10 @@ dados_classificacao2021$IDADE <- as.numeric(interval(dados_classificacao2021$DAT
 dados <- rbind(dados_classificacao, dados_classificacao2021)
 
 #separar mês e ano
-#dados$data_status <- paste(format(dados$DATA_DA_NOTIFICACAO, "%B"), format(dados$DATA_DA_NOTIFICACAO, "%Y"),",")
+dados$data_status <- paste(format(dados$DATA_DA_NOTIFICACAO, "%B"), format(dados$DATA_DA_NOTIFICACAO, "%Y"))
 glimpse(dados)
+
+view(dados)
 
 #Fazer intervalos de faixa etária de 10 em 10 anos
 intervalos_idade <- c(0, 14, 29, 44, 59, 74, Inf)
@@ -73,18 +75,23 @@ dados <- dados |>
 dados2 <- table(dados$data_status, dados$faixa_etaria)
 dados2 <- as.data.frame(dados2)
 
+#view(dados3)
 dados3 <- dados2 %>%
   pivot_wider(names_from = Var2, values_from = Freq)
 glimpse(dados3)
 
 meses <- seq(as.Date("2020-01-01"), as.Date("2021-12-01"), by = "month")
 meses <- format(meses, format = "%B %Y")
-meses <- paste(meses, ",", sep = " ")
+meses <- paste(meses, sep = " ")
+meses
+
+dados3$Var1
 
 dados4 <- dados3 %>% 
   mutate(Var1  = factor(Var1, levels= meses)) %>% 
   arrange(Var1)
 
+view(dados4)
 names(dados4) <- c("Mês", "0-14", "15-29", "30-44", "45-59", "60-74", "75+")
 nomes <- names(dados4)
 glimpse(dados4)
@@ -103,7 +110,7 @@ glimpse(dados4)
 #dados4 %<>% mutate(`75+`=round(`75+`/1000,1))
 
 
-
+view(dados4)
 
 # Carregue a biblioteca plotly
 library(plotly)
@@ -111,7 +118,7 @@ library(plotly)
 # Suponha que você tenha um conjunto de dados chamado "dados" com colunas "Mês" e "Número de casos confirmados"
 
 # Defina a coluna "Mês" como um fator na ordem desejada
-dados$Mês <- factor(dados$Mês, levels = unique(dados$Mês))
+#dados4$Mês <- factor(dados4$Mês, levels = unique(dados4$Mês))
 
 
 # Crie um scatter plot interativo vazio
